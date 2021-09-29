@@ -16,11 +16,6 @@ public class Restaurante {
         return cardapio;
     }
 
-    //Método para adicionar um prato
-    public void adicionarPrato(Prato novoPrato){
-        cardapio.add(novoPrato);
-    }
-
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
@@ -29,4 +24,11 @@ public class Restaurante {
         retorno.append("\n" + cardapio);
         return retorno.toString();
     }
+
+    //Método para adicionar um prato
+    public void adicionarPrato(Prato novoPrato){
+        cardapio.add(novoPrato);
+    }
+
+
 }

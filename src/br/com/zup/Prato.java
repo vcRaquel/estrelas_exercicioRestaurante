@@ -41,6 +41,11 @@ public class Prato {
         this.valor = valor;
     }
 
+    //Método para adicionar um ingrediente
+    public void adicionarIngrediente(Ingrediente novoIngrediente) {
+        ingredientes.add(novoIngrediente);
+    }
+
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
@@ -48,10 +53,5 @@ public class Prato {
         retorno.append("\n Valor do prato: " + valor);
         retorno.append("\n Ingredientes do prato: " + ingredientes);
         return retorno.toString();
-    }
-
-    //Método para adicionar um ingrediente
-    public void adicionarIngrediente(Ingrediente novoIngrediente) {
-        ingredientes.add(novoIngrediente);
     }
 }

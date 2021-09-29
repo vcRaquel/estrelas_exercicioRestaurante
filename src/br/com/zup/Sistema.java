@@ -18,6 +18,13 @@ public class Sistema {
         System.out.println("Digite 3 - Para sair");
     }
 
+    //método para exibir submenu
+    public static void menuIngrediente(){
+        System.out.println("Cadastro de ingredientes");
+        System.out.println("Digite 1 - Para cadastrar ingrediente");
+        System.out.println("Digite 2 - Para sair do submenu");
+    }
+
     //método para criar cadastrar ingredientes:
     public static Ingrediente cadastrarIngrediente() {
         String nomeIngrediente = capturarDados("Digite o nome do ingrediente: ").nextLine();
@@ -44,15 +51,30 @@ public class Sistema {
 
             if (opcaoDoUsuario == 1) {
                 System.out.println(restaurante);
-            } else if (opcaoDoUsuario == 2) {
+            } else if(opcaoDoUsuario == 2){
                 Prato prato = cadastrarPrato(); // para cadastrar um novo prato
                 restaurante.adicionarPrato(prato); // para adicionar o prato na lista cardápio da classe Restaurante
-                Ingrediente ingrediente = cadastrarIngrediente();
-                prato.adicionarIngrediente(ingrediente);
-            } else if (opcaoDoUsuario == 3) {
+                //criando submenu para cadastrar ingredientes em um prato
+                boolean submenu = true;
+                while (submenu){
+                    menuIngrediente();
+                    int seletor = capturarDados("Digite a opção desejada: ").nextInt();
+                    if (seletor == 1){
+                        Ingrediente ingrediente = cadastrarIngrediente();
+                        prato.adicionarIngrediente(ingrediente);
+                    }else if (seletor == 2){
+                        System.out.println("Estaremos direcionando você para o menu principal");
+                        submenu = false;
+                    }
+                }
+
+            }else if (opcaoDoUsuario == 3){
                 System.out.println("Agradecemos a preferência! Volte sempre!");
                 menu = false;
             }
         }
+
     }
+
+
 }

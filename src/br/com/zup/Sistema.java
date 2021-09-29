@@ -25,4 +25,12 @@ public class Sistema {
         Ingrediente ingrediente = new Ingrediente(nomeIngrediente,quantidadeIngrediente);
         return ingrediente;
     }
+
+    //método para cadastrar os pratos
+    public static Prato cadastrarPrato() {
+        String nomePrato = capturarDados("Digite o nome do prato: ").nextLine();
+        double valorPrato = capturarDados("Digite o valor do prato: ").nextDouble();
+        Prato prato = new Prato(nomePrato,valorPrato);
+        return prato;
+    }
 }

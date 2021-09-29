@@ -22,7 +22,7 @@ public class Sistema {
     public static Ingrediente cadastrarIngrediente() {
         String nomeIngrediente = capturarDados("Digite o nome do ingrediente: ").nextLine();
         String quantidadeIngrediente = capturarDados("Digite a quantidade do Ingrediente: ").nextLine();
-        Ingrediente ingrediente = new Ingrediente(nomeIngrediente,quantidadeIngrediente);
+        Ingrediente ingrediente = new Ingrediente(nomeIngrediente, quantidadeIngrediente);
         return ingrediente;
     }
 
@@ -30,7 +30,29 @@ public class Sistema {
     public static Prato cadastrarPrato() {
         String nomePrato = capturarDados("Digite o nome do prato: ").nextLine();
         double valorPrato = capturarDados("Digite o valor do prato: ").nextDouble();
-        Prato prato = new Prato(nomePrato,valorPrato);
+        Prato prato = new Prato(nomePrato, valorPrato);
         return prato;
+    }
+
+    public static void executar() {
+        boolean menu = true;
+        Restaurante restaurante = new Restaurante();
+
+        while (menu) {
+            menu();
+            int opcaoDoUsuario = capturarDados("Digite a opção desejada: ").nextInt();
+
+            if (opcaoDoUsuario == 1) {
+                System.out.println(restaurante);
+            } else if (opcaoDoUsuario == 2) {
+                Prato prato = cadastrarPrato(); // para cadastrar um novo prato
+                restaurante.adicionarPrato(prato); // para adicionar o prato na lista cardápio da classe Restaurante
+                Ingrediente ingrediente = cadastrarIngrediente();
+                prato.adicionarIngrediente(ingrediente);
+            } else if (opcaoDoUsuario == 3) {
+                System.out.println("Agradecemos a preferência! Volte sempre!");
+                menu = false;
+            }
+        }
     }
 }

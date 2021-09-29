@@ -49,4 +49,9 @@ public class Prato {
         retorno.append("\n Ingredientes do prato: " + ingredientes);
         return retorno.toString();
     }
+
+    //Método para adicionar um ingrediente
+    public void adicionarIngrediente(Ingrediente novoIngrediente) {
+        ingredientes.add(novoIngrediente);
+    }
 }
